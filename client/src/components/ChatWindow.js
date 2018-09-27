@@ -12,6 +12,7 @@ import {
 import styled from 'styled-components'
 import axios from 'axios'
 import ChatMessage from './ChatMessage'
+import UserFetcher from './UserFetcher'
 
 const MainWindow = styled(Segment)`
   border: 3px solid black;
@@ -75,7 +76,7 @@ class ChatWindow extends React.Component {
 
   render() {
     return (
-      <Segment basic>
+      <UserFetcher>
         <Underline as="h2" textAlign="center">
           React Chat!
         </Underline>
@@ -97,7 +98,7 @@ class ChatWindow extends React.Component {
             </Segment>
           </Form>
         </MessageInput>
-      </Segment>
+      </UserFetcher>
     )
   }
 }
@@ -106,22 +107,9 @@ const mapStateToProps = (state) => {
   return {
     user: state.user,
     messages: state.messages,
+    users: state.users,
   }
 }
 
 export default connect(mapStateToProps)(ChatWindow)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
